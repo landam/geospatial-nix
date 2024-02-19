@@ -13,6 +13,7 @@
 , flex
 , gdal
 , geos
+, git
 , libiconv
 , libmysqlclient
 , libpng
@@ -39,6 +40,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "OSGeo";
     repo = "grass";
+    deepClone = true;
     rev = finalAttrs.version;
     hash = "sha256-SoJq4SuDYImfkM2e991s47vYusrmnrQaXn7p3xwyOOQ=";
   };
@@ -51,6 +53,7 @@ stdenv.mkDerivation (finalAttrs: {
     flex
     gdal # for `gdal-config`
     geos # for `geos-config`
+    git  # for Git hash
     libmysqlclient # for `mysql_config`
     netcdf # for `nc-config`
     pkg-config
